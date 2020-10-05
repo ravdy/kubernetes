@@ -37,7 +37,7 @@ These controllers include:
 
 
 #### Cloud-controller-manager 
-  It comes in the picture incase cluster is running in the cloud environment. 
+  It comes into the picture incase cluster is running in the cloud environment. 
 
 
 #### kubelet
@@ -46,3 +46,6 @@ These controllers include:
 #### kube-proxy 
   kube-proxy is a network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept.  
   kube-proxy maintains network rules on nodes. These network rules allow network communication to your Pods from network sessions inside or outside of your cluster
+
+#### Container runtime 
+  it is a underlying software which is used to run our pods 
