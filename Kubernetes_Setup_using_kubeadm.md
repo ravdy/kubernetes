@@ -1,5 +1,5 @@
 # Kubernetes Cluster installation using kubeadm
-Follow this documentation to set up a Kubernetes cluster on __CentOS__ 7 or __Amazon Linux__  machines.
+Follow this documentation to set up a Kubernetes cluster on __CentOS__ 7 machines.
 
 This documentation guides you in setting up a cluster with one master node and two worker nodes.
 
