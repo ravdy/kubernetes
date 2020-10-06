@@ -89,7 +89,7 @@ This documentation guides you in setting up a cluster with one master node and t
     kubeadm init --apiserver-advertise-address=<MasterServerIP> --pod-network-cidr=192.168.0.0/16
     ```
 1. Create a user for kubernetes administration  and copy kube config file.   
-    ``To be able to use kubectl command to connect and interact with the cluster, the user needs kube config file.``
+    ``To be able to use kubectl command to connect and interact with the cluster, the user needs kube config file.``  
     In this case, we are creating a user called `kubeadmin`
     ```sh
     useradd kubeadmin 
