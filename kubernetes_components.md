@@ -1,14 +1,14 @@
 # Kubernetes Components
 
-### Master Components
-  kube-apiserver
-  kube-scheduler
-  kube-controller-manager
-  etcd
+### Master Components  
+  kube-apiserver  
+  kube-scheduler  
+  kube-controller-manager  
+  etcd  
 
-### Node Components
-  Kubelet
-  kube-proxy
+### Node Components  
+  Kubelet  
+  kube-proxy  
 
 
 #### Kube-apiserver: 
@@ -30,10 +30,10 @@ Logically, each controller is a separate process, but to reduce complexity, they
 
 These controllers include:
 
-`Node controller:` Responsible for noticing and responding when nodes go down.
-`Replication controller:` Responsible for maintaining the correct number of pods for every replication controller object in the system.
-`Endpoints controller:` Populates the Endpoints object (that is, joins Services & Pods).
-`Service Account & Token controllers:` Create default accounts and API access tokens for new namespaces.
+`Node controller:` Responsible for noticing and responding when nodes go down.  
+`Replication controller:` Responsible for maintaining the correct number of pods for every replication controller object in the system.  
+`Endpoints controller:` Populates the Endpoints object (that is, joins Services & Pods).  
+`Service Account & Token controllers:` Create default accounts and API access tokens for new namespaces.  
 
 
 #### Cloud-controller-manager 
