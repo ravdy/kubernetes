@@ -5,20 +5,20 @@ This documentation guides you in setting up a cluster with one master node and t
 
 ## Prerequisites: 
 1. System Requirements 
-    >Master: t2.medium (2 CPUs and 2GB Memory) 
+    >Master: t2.medium (2 CPUs and 2GB Memory)   
     >Worker Nodes: t2.micro 
 
 1. Open Below ports in the Security Group. 
-   #### `Master node:` 
-    6443  
+   #### Master node: 
+    `6443  
     32750  
     10250  
     4443  
     443  
-    8080  
+    8080 `
 
-   ##### `On Master node and Worker node:`
-    179  
+   ##### On Master node and Worker node:
+    `179`  
 
    ### `On Master and Worker:`
 1. Perform all the commands as root user unless otherwise specified
@@ -32,6 +32,7 @@ This documentation guides you in setting up a cluster with one master node and t
    yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo > /dev/null 2>&1
    yum install -y -q docker-ce >/dev/null 2>&1
    ```
+1. Start Docker services 
    ```sh
    systemctl enable docker
    systemctl start docker
@@ -60,7 +61,7 @@ This documentation guides you in setting up a cluster with one master node and t
    sysctl --system
    ```
 ## Kubernetes Setup
-1. Add yum repository
+1. Add yum repository for kubernetes packages 
     ```sh
     cat >>/etc/yum.repos.d/kubernetes.repo<<EOF
     [kubernetes]
@@ -87,17 +88,20 @@ This documentation guides you in setting up a cluster with one master node and t
     ```sh
     kubeadm init --apiserver-advertise-address=<MasterServerIP> --pod-network-cidr=192.168.0.0/16
     ```
-1. Copy kube config
+1. Create a user for kubernetes administration  and copy kube config file.   
     ``To be able to use kubectl command to connect and interact with the cluster, the user needs kube config file.``
-    In my case, the user account is kubeadmin
+    In this case, we are creating a user called `kubeadmin`
     ```sh
+    useradd kubeadmin 
     mkdir /home/kubeadmin/.kube
     cp /etc/kubernetes/admin.conf /home/kubeadmin/.kube/config
     chown -R kubeadmin:kubeadmin /home/kubeadmin/.kube
     ```
-1. Deploy Calico network
-    This has to be done as the user in the above step (in my case it is __praveen__)
+1. Deploy Calico network as a __kubeadmin__ user. 
+	> This should be executed as a user (heare as a __kubeadmin__ )
+    
     ```sh
+    sudo su - kubeadmin 
     kubectl create -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml
     ```
 
@@ -106,7 +110,7 @@ This documentation guides you in setting up a cluster with one master node and t
     kubeadm token create --print-join-command
     ```
 ## `On Worker Node:`
-1. Join the cluster
+1. Add worker nodes to cluster 
     > Use the output from __kubeadm token create__ command in previous step from the master server and run here.
 
 1. Verifying the cluster
