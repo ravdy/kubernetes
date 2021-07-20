@@ -59,6 +59,11 @@
    kops create cluster --cloud=aws --zones=ap-south-1b --name=demo.k8s.valaxy.net --dns-zone=valaxy.net --dns private 
     ```
 
+1. If you wish to update the cluster worker node sizes use below command 
+   ```sh 
+   kops edit ig --name=CHANGE_TO_CLUSTER_NAME nodes
+   ```
+
 1. Create kubernetes cluser
     ```sh
     kops update cluster demo.k8s.valaxy.net --yes
