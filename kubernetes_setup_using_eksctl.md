@@ -17,7 +17,7 @@ You can follow same procedure in the official  AWS document [Getting started wit
    mv ./kubectl /usr/local/bin 
    kubectl version --short --client
    ```
-2. Setup eksctl 
+2. Setup eksctl   
    a. Download and extract the latest release   
    b. Move the extracted binary to /usr/local/bin   
    c. Test that your eksclt installation was successful   
@@ -27,7 +27,7 @@ You can follow same procedure in the official  AWS document [Getting started wit
    eksctl version
    ```
   
-3. Create an IAM Role 
+3. Create an IAM Role   
    `Note: create IAM user with programmatic access if your bootstrap system is outside of AWS`
    IAM user should have access to   
    IAM   
