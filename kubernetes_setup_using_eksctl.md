@@ -27,8 +27,8 @@ You can follow same procedure in the official  AWS document [Getting started wit
    eksctl version
    ```
   
-3. Create an IAM Role   
-   `Note: create IAM user with programmatic access if your bootstrap system is outside of AWS`
+3. Create an IAM Role and attache it to EC2 instance    
+   `Note: create IAM user with programmatic access if your bootstrap system is outside of AWS`   
    IAM user should have access to   
    IAM   
    EC2   
@@ -41,10 +41,11 @@ You can follow same procedure in the official  AWS document [Getting started wit
    --region region-name \
    --node-type instance-type \
    --nodes-min 2 \
-   --nodes-max 2
+   --nodes-max 2 \ 
+   --zones <AZ-1>,<AZ-2>
    
    example:
-   eksctl create cluster --name valaxy-cluster 
+   eksctl create cluster --name valaxy-cluster \
       --region ap-south-1 \
    --node-type t2.small \
     ```
