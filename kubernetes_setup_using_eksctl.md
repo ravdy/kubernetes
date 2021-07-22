@@ -49,7 +49,13 @@ You can follow same procedure in the official  AWS document [Getting started wit
       --region ap-south-1 \
    --node-type t2.small \
     ```
-5. Validate your cluster using by creating by checking nodes and by creating a pod 
+
+5. To delete the EKS clsuter 
+   ```sh 
+   eksctl delete cluster valaxy --region ap-south-1
+   ```
+   
+6. Validate your cluster using by creating by checking nodes and by creating a pod 
    ```sh 
    kubectl get nodes
    kubectl run pod tomcat --image=tomcat 
