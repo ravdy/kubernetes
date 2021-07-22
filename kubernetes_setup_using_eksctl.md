@@ -1,4 +1,4 @@
-# Setup Kubernetes on AWS EKS
+# Setup Kubernetes on Amazon EKS
 
 You can follow same procedure in the official  AWS document [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)   
 
@@ -17,7 +17,7 @@ You can follow same procedure in the official  AWS document [Getting started wit
    mv ./kubectl /usr/local/bin 
    kubectl version --short --client
    ```
-2. Setup eksctl (make sure kubeclt and eksctl both are same version)  
+2. Setup eksctl 
    a. Download and extract the latest release   
    b. Move the extracted binary to /usr/local/bin   
    c. Test that your eksclt installation was successful   
