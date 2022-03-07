@@ -76,7 +76,7 @@ This documentation guides you in setting up a cluster with one master node and t
     ```
 1. Install Kubernetes
     ```sh
-    yum install -y kubeadm-1.15.6-0.x86_64 kubelet-1.15.6-0.x86_64 kubectl-1.15.6-0.x86_64
+    yum install -y kubeadm kubelet kubectl
     ```
 1. Enable and Start kubelet service
     ```sh
@@ -102,7 +102,8 @@ This documentation guides you in setting up a cluster with one master node and t
     
     ```sh
     sudo su - kubeadmin 
-    kubectl create -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml
+    curl https://docs.projectcalico.org/manifests/calico-typha.yaml -o calico.yaml
+    kubectl apply -f calico.yaml
     ```
 
 1. Cluster join command
